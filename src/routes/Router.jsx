@@ -5,7 +5,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
-import {Services }from "../pages/Services/Services";
+import Services from "../pages/Services/Services";
 import MyProfile from "../pages/MyProfile/MyProfile";
 import ProtectedRoute from "./ProtectedRoute";
 import UpdateProfile from "../pages/MyProfile/UpdateProfile"; // Challenge
