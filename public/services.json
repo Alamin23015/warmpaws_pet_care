@@ -1,0 +1,74 @@
+[
+  {
+    "serviceId": "01",
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold. We ensure a snug, safe, and stylish fit for all breeds.",
+    "image": "https://i.ibb.co/L6FZYVB/dog-coat-fitting.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": "02",
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 40,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm to protect against salt and ice. Includes winter-safe shampoo and a fluff-dry.",
+    "image": "https://i.ibb.co/h7gBqH2/pet-grooming-winter.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": "03",
+    "serviceName": "Heated Pet Bed Setup",
+    "providerName": "WarmWhiskers Inc.",
+    "providerEmail": "support@warmwhiskers.com",
+    "price": 50,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Consultation and installation of a safe, low-voltage heated pet bed. Perfect for senior pets or those sensitive to the cold.",
+    "image": "https://i.ibb.co/P9zR9hG/heated-pet-bed.jpg",
+    "category": "Comfort"
+  },
+  {
+    "serviceId": "04",
+    "serviceName": "Indoor Pet Agility Training",
+    "providerName": "ActivePaws Academy",
+    "providerEmail": "train@activepaws.com",
+    "price": 35,
+    "rating": 4.9,
+    "slotsAvailable": 6,
+    "description": "Keep your pet active indoors! Our agility classes are designed to burn energy and stimulate your pet's mind during the winter months.",
+    "image": "https://i.ibb.co/g94S4z1/pet-agility-indoor.jpg",
+    "category": "Activity"
+  },
+  {
+    "serviceId": "05",
+    "serviceName": "Winter Pet-Sitting (In-Home)",
+    "providerName": "Homestead Sitters",
+    "providerEmail": "care@homesteadsitters.com",
+    "price": 60,
+    "rating": 5.0,
+    "slotsAvailable": 2,
+    "description": "Going on a winter vacation? Our bonded sitters will care for your pet in the comfort of your own home, ensuring they stay warm and on schedule.",
+    "image": "https://i.ibb.co/103N0fV/pet-sitting-winter.jpg",
+    "category": "Sitting"
+  },
+  {
+    "serviceId": "06",
+    "serviceName": "Senior Pet Wellness Check",
+    "providerName": "GoldenYears Vets",
+    "providerEmail": "vets@goldenyears.com",
+    "price": 75,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Winter can be tough on senior pets. This check-up focuses on joint health, comfort, and nutrition advice for the cold season.",
+    "image": "https://i.ibb.co/vVRvH2p/senior-pet-checkup.jpg",
+    "category": "Health"
+  }
+]
