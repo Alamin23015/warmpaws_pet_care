@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
       <nav className="grid grid-flow-col gap-4">
-        {/* নেভিগেশন লিঙ্ক যোগ করা হয়েছে */}
+        
         <a href="/about" className="link link-hover">About us</a>
         <a href="/contact" className="link link-hover">Contact</a>
         <a href="/privacy" className="link link-hover">Privacy Policy</a>
@@ -12,7 +12,7 @@ const Footer = () => {
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4 text-2xl">
-          {/* সোশ্যাল মিডিয়া লিঙ্ক যোগ করা হয়েছে */}
+          
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <FaFacebook />
           </a>

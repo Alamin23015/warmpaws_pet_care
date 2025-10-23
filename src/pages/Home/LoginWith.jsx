@@ -2,7 +2,7 @@
 
 import { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import { AuthContext } from '../../context/AuthContext'; // পাথ ঠিক রাখুন
+import { AuthContext } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -22,7 +22,6 @@ const LoginWith = () => {
       .catch(error => toast.error(error.message));
   };
 
-  // যদি ইউজার লগডইন থাকে, এই কম্পোনেন্ট কিছুই দেখাবে না
   if (user) {
     return null;
   }

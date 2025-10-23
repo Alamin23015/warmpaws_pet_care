@@ -2,8 +2,8 @@
 
 const MeetOurVets = () => {
   const vets = [
-    { name: 'Dr. Emily Carter', specialty: 'Senior Pet Care', img: 'https://i.ibb.co/fHwQ3h8/vet-1.jpg' },
-    { name: 'Dr. James Lee', specialty: 'Pet Nutrition', img: 'https://i.ibb.co/3kKqYv1/vet-2.jpg' },
+    { name: 'Dr. Emily Carter', specialty: 'Senior Pet Care', img: 'https://github.com/Alamin23015/Source_image/raw/main/8.jpg' },
+    { name: 'Dr. James Lee', specialty: 'Pet Nutrition', img: 'https://github.com/Alamin23015/Source_image/raw/main/7.jpg' },
   ];
 
   return (

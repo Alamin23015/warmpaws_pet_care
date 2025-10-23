@@ -21,14 +21,22 @@ const RightSidebar = () => {
   };
 
   const vets = [
-    { name: 'Dr. Emily Carter', specialty: 'Senior Pet Care', img: 'https://i.ibb.co/fHwQ3h8/vet-1.jpg' }, // অনুগ্রহ করে ছবি আপলোড করে লিঙ্ক পরিবর্তন করুন
-    { name: 'Dr. James Lee', specialty: 'Pet Nutrition', img: 'https://i.ibb.co/3kKqYv1/vet-2.jpg' },
+    { 
+  name: 'Dr. Emily Carter', 
+  specialty: 'Senior Pet Care', 
+  img: 'https://i.ibb.co/3kKqYv1/vet-2.jpg' 
+},
+{ 
+  name: 'Dr. James Lee', 
+  specialty: 'Pet Nutrition', 
+  img: 'https://i.ibb.co/0jR6Z3v/vet-1.jpg' 
+},
   ];
 
   return (
     <div className="space-y-6">
       
-      {/* Google Login (যদি ইউজার লগডইন না থাকে) */}
+
       {!user && (
         <div className="p-4 bg-base-200 rounded-lg">
           <h2 className="text-xl font-bold mb-4">Login With</h2>
@@ -38,7 +46,7 @@ const RightSidebar = () => {
         </div>
       )}
 
-      {/* Find Us On */}
+
       <div className="p-4 bg-base-200 rounded-lg">
         <h2 className="text-xl font-bold mb-4">Find Us On</h2>
         <ul className="space-y-2">

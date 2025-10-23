@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="max-w-7xl mx-auto px-4">
       
-      {/* Hero Slider */}
+    
       <header>
         <div className="my-8" data-aos="fade-in">
           <HeroSlider />
@@ -39,7 +39,7 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           
-          
+          <><LoginWith></LoginWith></>
           
           <FindUsOn />
           
