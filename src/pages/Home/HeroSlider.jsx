@@ -30,7 +30,7 @@ const HeroSlider = () => {
       >
         <SwiperSlide>
           <div className="h-full w-full relative">
-            <img src="https://i.ibb.co/L6FZYVB/dog-coat-fitting.jpg" className="h-full w-full object-cover" />
+            <img src="https://github.com/Alamin23015/API_Image/raw/main/Image/1.jpg" className="h-full w-50px object-cover" />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="text-center text-white p-4" data-aos="fade-up">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4">Stay Warm, Stay Stylish</h1>

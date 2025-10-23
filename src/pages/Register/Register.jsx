@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
-  const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
@@ -18,111 +18,98 @@ const Register = () => {
     const photoURL = form.get("photoURL");
     const password = form.get("password");
 
-    // Reset error
-    setPasswordError("");
+    setPasswordError(""); // Reset error
 
-    // Password Validation Challenge
+    // Password Validation
     if (password.length < 6) {
-      setPasswordError("Password must be at least 6 characters long.");
+      setPasswordError("Password must be at least 6 characters.");
       return;
     }
     if (!/[A-Z]/.test(password)) {
-      setPasswordError("Password must contain at least one uppercase letter.");
+      setPasswordError("Password must have one Uppercase letter.");
       return;
     }
     if (!/[a-z]/.test(password)) {
-      setPasswordError("Password must contain at least one lowercase letter.");
+      setPasswordError("Password must have one Lowercase letter.");
       return;
     }
 
-    // Create user
     createUser(email, password)
-      .then(result => {
-        // Update profile
+      .then(() => {
         updateUserProfile(name, photoURL)
           .then(() => {
             toast.success("Registration successful!");
-            navigate("/"); // Navigate to home
+            navigate("/"); 
           })
-          .catch(error => {
-            toast.error(error.message);
-          });
+          .catch(error => toast.error(error.message));
       })
-      .catch(error => {
-        toast.error(error.message);
-      });
-  };
-
-  const handleGoogleSignIn = () => {
-    googleSignIn()
-      .then(result => {
-        toast.success("Google Sign-In successful!");
-        navigate("/"); // Navigate to home
-      })
-      .catch(error => {
-        toast.error(error.message);
-      });
+      .catch(error => toast.error(error.message.split('(')[1].split(')')[0]));
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="card w-full max-w-md shadow-2xl bg-base-100">
-        <form onSubmit={handleRegister} className="card-body">
-          <h1 className="text-3xl font-bold text-center">Register for WarmPaws</h1>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Name</span>
-            </label>
-            <input type="text" name="name" placeholder="Your Name" className="input input-bordered" required />
+    <div className="flex justify-center items-center min-h-[calc(100vh-200px)] bg-gray-50 py-12">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-lg">
+        <h1 className="text-3xl font-bold text-center text-gray-900">
+          Register your account
+        </h1>
+        
+        <form onSubmit={handleRegister} className="space-y-4">
+          
+          <div>
+            <label className="text-sm font-bold text-gray-700 tracking-wide">Your Name</label>
+            <input type="text" name="name" placeholder="Enter your name"
+              className="w-full text-lg p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" required />
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Photo URL</span>
-            </label>
-            <input type="text" name="photoURL" placeholder="http://example.com/image.png" className="input input-bordered" required />
+          
+          <div>
+            <label className="text-sm font-bold text-gray-700 tracking-wide">Photo URL</label>
+            <input type="text" name="photoURL" placeholder="Enter photo URL"
+              className="w-full text-lg p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" required />
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Email</span>
-            </label>
-            <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+          
+          <div>
+            <label className="text-sm font-bold text-gray-700 tracking-wide">Email</label>
+            <input type="email" name="email" placeholder="Enter your email"
+              className="w-full text-lg p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" required />
           </div>
-          <div className="form-control relative">
-            <label className="label">
-              <span className="label-text">Password</span>
-            </label>
+          
+          <div className="relative">
+            <label className="text-sm font-bold text-gray-700 tracking-wide">Password</label>
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              placeholder="password"
-              className="input input-bordered pr-10"
+              placeholder="Enter your password"
+              className="w-full text-lg p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
               required
             />
-            {/* Password Toggle Challenge */}
             <span 
               onClick={() => setShowPassword(!showPassword)} 
-              className="absolute right-4 top-12 cursor-pointer"
+              className="absolute right-4 top-10 cursor-pointer text-lg"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
           </div>
-
+          
           {/* Password Error Message */}
           {passwordError && (
-            <p className="text-red-500 text-sm mt-2">{passwordError}</p>
+            <p className="text-red-500 text-sm font-semibold">{passwordError}</p>
           )}
 
-          <div className="form-control mt-6">
-            <button className="btn btn-primary">Register</button>
+          {/* Register Button */}
+          <div className="pt-4">
+            <button type="submit" className="w-full btn btn-primary btn-lg">
+              Register
+            </button>
           </div>
-          <p className="text-center mt-4">
-            Already have an account? <Link to="/login" className="link link-primary">Login</Link>
-          </p>
-          <div className="divider">OR</div>
-          <button onClick={handleGoogleSignIn} type="button" className="btn btn-outline btn-primary">
-            <FaGoogle /> Continue with Google
-          </button>
         </form>
+
+        {/* Link to Login */}
+        <p className="text-center text-gray-700">
+          Already Have An Account? 
+          <Link to="/login" className="font-bold text-secondary hover:underline ml-1">
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );

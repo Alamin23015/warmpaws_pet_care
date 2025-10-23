@@ -6,7 +6,7 @@ import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
-  const [email, setEmail] = useState(''); // For forgot password challenge
+  const [email, setEmail] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,86 +20,97 @@ const Login = () => {
     const password = form.get("password");
 
     signIn(email, password)
-      .then(result => {
-        console.log(result.user);
+      .then(() => {
         toast.success("Login successful!");
         navigate(from, { replace: true });
       })
-      .catch(error => {
-        toast.error(error.message);
-      });
+      .catch(error => toast.error(error.message.split('(')[1].split(')')[0])); // Firebase error সুন্দর করা
   };
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignIn = () =>{
     googleSignIn()
-      .then(result => {
-        console.log(result.user);
+      .then(() => {
         toast.success("Google Sign-In successful!");
         navigate(from, { replace: true });
       })
-      .catch(error => {
-        toast.error(error.message);
-      });
+      .catch(error => toast.error(error.message));
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="card w-full max-w-md shadow-2xl bg-base-100">
-        <form onSubmit={handleLogin} className="card-body">
-          <h1 className="text-3xl font-bold text-center">Login to WarmPaws</h1>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Email</span>
+    <div className="flex justify-center items-center min-h-[calc(100vh-200px)] bg-gray-50 py-12">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-lg">
+        <h1 className="text-3xl font-bold text-center text-gray-900">
+          Login your account
+        </h1>
+        
+        <form onSubmit={handleLogin} className="space-y-6">
+          {/* Email Field */}
+          <div>
+            <label className="text-sm font-bold text-gray-700 tracking-wide">
+              Email address
             </label>
             <input
               type="email"
               name="email"
-              placeholder="email"
-              className="input input-bordered"
-              onChange={(e) => setEmail(e.target.value)} // Track email
+              placeholder="Enter your email address"
+              className="w-full text-lg p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-          <div className="form-control relative">
-            <label className="label">
-              <span className="label-text">Password</span>
+          
+          {/* Password Field */}
+          <div className="relative">
+            <label className="text-sm font-bold text-gray-700 tracking-wide">
+              Password
             </label>
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              placeholder="password"
-              className="input input-bordered pr-10" // Add padding for icon
+              placeholder="Enter your password"
+              className="w-full text-lg p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
               required
             />
-            {/* Password Toggle Challenge */}
             <span 
               onClick={() => setShowPassword(!showPassword)} 
-              className="absolute right-4 top-12 cursor-pointer"
+              className="absolute right-4 top-10 cursor-pointer text-lg"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
-            <label className="label">
-              {/* Forgot Password Challenge: Pass email state */}
-              <Link 
-                to="/forgot-password" 
-                state={{ email: email }} // Pass the email
-                className="label-text-alt link link-hover"
-              >
-                Forgot password?
-              </Link>
-            </label>
           </div>
-          <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+
+          {/* Forget Password Link */}
+          <div className="text-right">
+            <Link 
+              to="/forgot-password" 
+              state={{ email: email }} 
+              className="text-sm text-primary hover:underline"
+            >
+              Forgot password?
+            </Link>
           </div>
-          <p className="text-center mt-4">
-            New to WarmPaws? <Link to="/register" className="link link-primary">Create an account</Link>
-          </p>
-          <div className="divider">OR</div>
-          <button onClick={handleGoogleSignIn} type="button" className="btn btn-outline btn-primary">
+
+          {/* Login Button */}
+          <div>
+            <button type="submit" className="w-full btn btn-primary btn-lg">
+              Login
+            </button>
+          </div>
+
+          {/* Social Login */}
+          <div className="divider">Or login with</div>
+          <button onClick={handleGoogleSignIn} type="button" className="w-full btn btn-outline btn-accent btn-lg">
             <FaGoogle /> Continue with Google
           </button>
         </form>
+
+        {/* Link to Register */}
+        <p className="text-center text-gray-700">
+          Don't Have An Account? 
+          <Link to="/register" className="font-bold text-secondary hover:underline ml-1">
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   );
