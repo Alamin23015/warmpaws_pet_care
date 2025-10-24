@@ -5,17 +5,23 @@ import WinterTips from "./WinterTips";
 import LoginWith from "./LoginWith";
 import FindUsOn from "./FindUsOn";
 import MeetOurVets from "./MeetOurVets";
-import ExtraSection from "./ExtraSection"; 
-import toast from "react-hot-toast"; 
+import ExtraSection from "./ExtraSection";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const services = useLoaderData();
 
-
+  // Fallback to prevent crashes on reload if data fails
   if (!services || services.length === 0) {
     return (
       <div className="text-center my-20 text-xl">
         No services available. Please try again later.
+        <button
+          onClick={() => toast.error("Failed to load services.")}
+          className="btn btn-error mt-4"
+        >
+          Retry
+        </button>
       </div>
     );
   }
@@ -49,7 +55,6 @@ const Home = () => {
         <WinterTips />
       </div>
 
-    
       <div className="my-24">
         <ExtraSection />
       </div>
