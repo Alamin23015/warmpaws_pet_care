@@ -1,16 +1,16 @@
-# React + Vite
+Project_Name: Pet_care
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Purpore: The app is a user-friendly platform for pet owners to discover, view details, and book veterinary services (e.g., winter grooming, hydration tips). It includes authentication for protected actions like booking, a responsive homepage with service showcases, and educational sections on pet health
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+key Feature : AuthProvider and ProtectedRouter , react-hot-toast,No crashes on reloads with fallbacks (e.g., "Service not found"), 404 page, and data checks in loaders/components. Scrolling Animation, DaisyUI/Tailwind for responsive, mobile-first design with hover effects, AOS animations, and card-based layouts.
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+npm Package That I'm used 
+react (^18.2.0) & react-dom (^18.2.0): Core React library for building UIs.
+react-router-dom (^6.8.0): For client-side routing, loaders, and protected routes.
+react-hot-toast (^2.4.1): For user-friendly success/error notifications.
+daisyui (^3.0.0): Tailwind CSS component library for buttons, cards, forms, and badges.
+tailwindcss (^3.2.0): Utility-first CSS framework for responsive styling (grids, shadows, etc.).
+@types/react & @types/react-dom (if using TypeScript): Type definitions.
+react-scripts (for CRA setup): Handles building and serving.
